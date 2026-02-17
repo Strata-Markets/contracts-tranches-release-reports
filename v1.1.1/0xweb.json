@@ -1,0 +1,17 @@
+{
+  "contracts": {
+    "eth": {
+      "0xa436c5Dd1Ba62c55D112C10cd10E988bb3355102": {
+        "name": "USDeAccountingV1",
+        "main": "./0xc/eth/USDeAccountingV1/USDeAccountingV1.ts",
+        "contractName": "Accounting",
+        "implementation": "0x4e9f8d06aaed67ac4aaa52d9175c842e0f8e8da2"
+      },
+      "0x5A8d34d785B5008Cce9B9F4AAa0e445f6959CBFf": {
+        "name": "USDeAccountingV2",
+        "main": "./0xc/eth/USDeAccountingV2/USDeAccountingV2.ts",
+        "contractName": "Accounting"
+      }
+    }
+  }
+}
