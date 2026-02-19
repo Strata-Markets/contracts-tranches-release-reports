@@ -3,7 +3,7 @@
 
 Originally, the performance-fee guardian (`reserveBps`) was set to 2%. Based on tranche performance and economic considerations, it now makes sense to increase the guardian limit to 10% and activate the performance fee at 5%.
 
-This update upgrades the constant in the contract and, as a next step, configures the parameters:
+This update changes the constant in the contract and, as a next step, configures the following parameters:
 
 | Parameter | Old Value | New Value |
 | --- | --- | --- |
@@ -18,13 +18,13 @@ This update upgrades the constant in the contract and, as a next step, configure
 - [ℹ️ Performance Fee and Redemption Fee 🔗](https://docs.strata.markets/protocol-mechanism/mechanism-overview#protocol-revenue-and-fees)
 - [ℹ️ Risk Premium 🔗](https://docs.strata.markets/protocol-mechanism/dynamic-yield-split#risk-premium)
 
-## Accounting upgrade
+## Accounting Upgrade
 
 #### Commit
 
 - [change(Accounting): increase performance-fee guardian limit](https://github.com/Strata-Money/contracts-tranches/commit/c2592613489ec30933b28f0b82cd35fdb0440a6f)
 
-#### Commit comparison to previous deployment
+#### Commit Comparison to Previous Deployment
 
 - Previous report: [v1.1.0](https://github.com/Strata-Money/contracts-tranches-release-reports/tree/master/v1.1.0)
 - Previous deployment commit: [init (TwoStepConfigManager) 2-step fee-setter](https://github.com/Strata-Money/contracts-tranches/commit/8eec77791ff01d2735f2c62cfc1502daa2b7904f)
@@ -68,9 +68,16 @@ index 0beba29..b576bc3 100644
 
 ## Upgrade and Configuration Timelock Transaction
 
+
+1. 🔒 Safe Proposal: https://app.safe.global/transactions/tx?safe=eth:0xA27cA9292268ee0f0258B749f1D5740c9Bb68B50&id=multisig_0xA27cA9292268ee0f0258B749f1D5740c9Bb68B50_0x524ed89cf00dfd4e356986c8369cd4214dfb8bcea3cc259ac03b9321498219c8
+
+2. ⌛ Timelock Schedule: _pending_
+
+3. ✅ Timelock Execution: _pending_
+
 ----
 
-The transaction is the Timelock Batch Operation submitting the following transactions:
+This transaction is a Timelock batch operation that submits the following transactions:
 
 #### Transaction: #1
 To:
@@ -134,7 +141,7 @@ To:
 ID: **USDeAccounting**
 Source: [Accounting.sol](https://github.com/Strata-Money/contracts-tranches/blob/c2592613489ec30933b28f0b82cd35fdb0440a6f/contracts/tranches/Accounting.sol)
 
-> Sets the portion of fees from each tranche that is returned to its TVL. The remainder goes to the reserve. (50% in WAD)
+> Sets the portion of fees from each tranche that is returned to tranche TVL. The remainder goes to the reserve. (50% in WAD)
 
 
 Data:
@@ -172,7 +179,7 @@ Data:
 ```
 
 ```yml
-Function: function setRiskParameters (uint256 riskX, uint256 riskY, uint256 riskK)
+Function: setRiskParameters (uint256 riskX, uint256 riskY, uint256 riskK)
 Parameters:
   value:
     - riskX = 0x16345785d8a0000 # 0.1e18   (10%)
