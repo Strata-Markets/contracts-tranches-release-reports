@@ -26,8 +26,8 @@ This update upgrades the constant in the contract and, as a next step, configure
 
 #### Commit comparison to previous deployment
 
-- Previous report: [v1.1.1](https://github.com/Strata-Money/contracts-tranches-release-reports/tree/master/v1.1.1)
-- Previous commit: [init (TwoStepConfigManager) 2-step fee-setter](https://github.com/Strata-Money/contracts-tranches/commit/8eec77791ff01d2735f2c62cfc1502daa2b7904f)
+- Previous report: [v1.1.0](https://github.com/Strata-Money/contracts-tranches-release-reports/tree/master/v1.1.0)
+- Previous deployment commit: [init (TwoStepConfigManager) 2-step fee-setter](https://github.com/Strata-Money/contracts-tranches/commit/8eec77791ff01d2735f2c62cfc1502daa2b7904f)
 - [Comparison](https://github.com/Strata-Money/contracts-tranches/compare/8eec77791ff01d2735f2c62cfc1502daa2b7904f..c2592613489ec30933b28f0b82cd35fdb0440a6f)
 
 #### Implementation Deployment
