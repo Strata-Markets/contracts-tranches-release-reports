@@ -71,7 +71,7 @@ index 0beba29..b576bc3 100644
 
 1. 🔒 Safe Proposal: https://app.safe.global/transactions/tx?safe=eth:0xA27cA9292268ee0f0258B749f1D5740c9Bb68B50&id=multisig_0xA27cA9292268ee0f0258B749f1D5740c9Bb68B50_0x524ed89cf00dfd4e356986c8369cd4214dfb8bcea3cc259ac03b9321498219c8
 
-2. ⌛ Timelock Schedule: _pending_
+2. ⌛ Timelock Schedule: https://etherscan.io/tx/0xd153d62aae1de11868df98d5005a0020b08403ba7df118c7850a8b33fe714223
 
 3. ✅ Timelock Execution: _pending_
 
