@@ -73,7 +73,7 @@ index 0beba29..b576bc3 100644
 
 2. ⌛ Timelock Schedule: https://etherscan.io/tx/0xd153d62aae1de11868df98d5005a0020b08403ba7df118c7850a8b33fe714223
 
-3. ✅ Timelock Execution: _pending_
+3. ✅ Timelock Execution: https://etherscan.io/tx/0x6d2e04ef4acc04d86207440fbcbb49141aaf44f48442e6df15d30f0519bf4257
 
 ----
 
