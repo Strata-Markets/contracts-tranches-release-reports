@@ -1,0 +1,16 @@
+{
+  "contracts": {
+    "eth": {
+      "0x4e409d5f9867352555e99a50cee2c4a73364e5b6": {
+        "name": "SaturnAccountingV1",
+        "main": "./0xc/eth/SaturnAccountingV1/SaturnAccountingV1.ts",
+        "contractName": "Accounting"
+      },
+      "0x8CabD13AF1D45404a484ab22bB65dAdF71048643": {
+        "name": "SaturnAccountingV2",
+        "main": "./0xc/eth/SaturnAccountingV2/SaturnAccountingV2.ts",
+        "contractName": "Accounting"
+      }
+    }
+  }
+}
