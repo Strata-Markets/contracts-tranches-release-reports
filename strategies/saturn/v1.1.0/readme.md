@@ -126,7 +126,7 @@ git diff --no-index --diff-filter=DM ./0xc/eth/SaturnAccountingV2/SaturnAccounti
 
 1. 🔒 Safe Proposal: https://app.safe.global/transactions/tx?safe=eth:0xA27cA9292268ee0f0258B749f1D5740c9Bb68B50&id=multisig_0xA27cA9292268ee0f0258B749f1D5740c9Bb68B50_0xbe4959eba57c368f23b30cb8b6a18a35a440dd4cde43478891b82497661530e1
 
-2. ⌛ Timelock Schedule
+2. ⌛ Timelock Schedule: https://etherscan.io/tx/0x01c4704e89d8a3ee1a97182504cd3200eb4699f2cef57b9a1dff582939549e1a
 
 3. ⌛ Timelock Execution
 
