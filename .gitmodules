@@ -7,3 +7,6 @@
 [submodule "strategies/saturn/v1.1.0/contracts-tranches"]
 	path = strategies/saturn/v1.1.0/contracts-tranches
 	url = https://github.com/Strata-Markets/contracts
+[submodule "strategies/saturn/v1.2.0/contracts-tranches"]
+	path = strategies/saturn/v1.2.0/contracts-tranches
+	url = https://github.com/Strata-Markets/contracts/

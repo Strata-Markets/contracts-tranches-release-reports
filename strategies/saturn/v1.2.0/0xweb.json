@@ -1,0 +1,21 @@
+{
+  "contracts": {
+    "eth": {
+      "0x8cabd13af1d45404a484ab22bb65dadf71048643": {
+        "name": "SaturnAccountingV1",
+        "main": "./0xc/eth/SaturnAccountingV1/SaturnAccountingV1.ts",
+        "contractName": "Accounting"
+      },
+      "0xCAF0865334EB135b8C47Fca6D9049D5EaFe19D9b": {
+        "name": "SaturnStrategyV2",
+        "main": "./0xc/eth/SaturnStrategyV2/SaturnStrategyV2.ts",
+        "contractName": "SaturnStrategy"
+      },
+      "0x9686e327a6f50aca2a1bea4219e04dc4449dc286": {
+        "name": "SaturnStrategyV1",
+        "main": "./0xc/eth/SaturnStrategyV1/SaturnStrategyV1.ts",
+        "contractName": "SaturnStrategy"
+      }
+    }
+  }
+}
