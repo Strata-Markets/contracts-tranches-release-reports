@@ -176,9 +176,9 @@ git diff --no-index --diff-filter=DM ./0xc/eth/SaturnStrategyV2/SaturnStrategyV2
 
 1. 🔒 Safe Proposal: https://app.safe.global/transactions/tx?safe=eth:0xA27cA9292268ee0f0258B749f1D5740c9Bb68B50&id=multisig_0xA27cA9292268ee0f0258B749f1D5740c9Bb68B50_0x23c579de759ab584176590596f8b20fb5c25d98c6f27067cff1646b884a049d1
 
-2. ⌛
+2. ⌛ Timelock Schedule: https://etherscan.io/tx/0x6404f8a31bdd6b4557be36254b12bde31d0daab0084d652a8fa8b1045a6b9f48
 
-3. ⌛
+3. 🏁 Timelock Execution: https://etherscan.io/tx/0xe61120ca06b50293509e44098fcc5d16b3d0162fe27fa827bca91d9c1e669324
 
 ----
 
