@@ -1,0 +1,1135 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "contract IStrataCDOFull",
+        "name": "_cdo",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "neededRole",
+        "type": "bytes32"
+      }
+    ],
+    "name": "AccessControlUnauthorizedAccount",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "InvalidInitialization",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "NotInitializing",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnableInvalidOwner",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "OwnableUnauthorizedAccount",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "ReentrancyGuardReentrantCall",
+    "type": "error"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "sender",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "calledContract",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes4",
+        "name": "sel",
+        "type": "bytes4"
+      }
+    ],
+    "name": "Unauthorized",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "ZeroAddress",
+    "type": "error"
+  },
+  {
+    "anonymous": false,
+    "inputs": [],
+    "name": "ExitFeeChangeCancelled",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "feeJrt",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "feeSrt",
+        "type": "uint256"
+      }
+    ],
+    "name": "ExitFeeChangeExecuted",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "feeJrt",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "feeSrt",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint64",
+        "name": "executeAfter",
+        "type": "uint64"
+      }
+    ],
+    "name": "ExitFeeChangeScheduled",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [],
+    "name": "ExitModeBoundsChangeCancelled",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint32",
+            "name": "p0",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "p1",
+            "type": "uint32"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint32",
+                "name": "feePpm",
+                "type": "uint32"
+              },
+              {
+                "internalType": "uint32",
+                "name": "sharesLock",
+                "type": "uint32"
+              }
+            ],
+            "internalType": "struct ISharesCooldown.TExitParams",
+            "name": "r0",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint32",
+                "name": "feePpm",
+                "type": "uint32"
+              },
+              {
+                "internalType": "uint32",
+                "name": "sharesLock",
+                "type": "uint32"
+              }
+            ],
+            "internalType": "struct ISharesCooldown.TExitParams",
+            "name": "r1",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint32",
+                "name": "feePpm",
+                "type": "uint32"
+              },
+              {
+                "internalType": "uint32",
+                "name": "sharesLock",
+                "type": "uint32"
+              }
+            ],
+            "internalType": "struct ISharesCooldown.TExitParams",
+            "name": "r2",
+            "type": "tuple"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct ISharesCooldown.TExitUpperBounds",
+        "name": "boundsJrt",
+        "type": "tuple"
+      },
+      {
+        "components": [
+          {
+            "internalType": "uint32",
+            "name": "p0",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "p1",
+            "type": "uint32"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint32",
+                "name": "feePpm",
+                "type": "uint32"
+              },
+              {
+                "internalType": "uint32",
+                "name": "sharesLock",
+                "type": "uint32"
+              }
+            ],
+            "internalType": "struct ISharesCooldown.TExitParams",
+            "name": "r0",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint32",
+                "name": "feePpm",
+                "type": "uint32"
+              },
+              {
+                "internalType": "uint32",
+                "name": "sharesLock",
+                "type": "uint32"
+              }
+            ],
+            "internalType": "struct ISharesCooldown.TExitParams",
+            "name": "r1",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint32",
+                "name": "feePpm",
+                "type": "uint32"
+              },
+              {
+                "internalType": "uint32",
+                "name": "sharesLock",
+                "type": "uint32"
+              }
+            ],
+            "internalType": "struct ISharesCooldown.TExitParams",
+            "name": "r2",
+            "type": "tuple"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct ISharesCooldown.TExitUpperBounds",
+        "name": "boundsSrt",
+        "type": "tuple"
+      }
+    ],
+    "name": "ExitModeBoundsChangeExecuted",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint32",
+            "name": "p0",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "p1",
+            "type": "uint32"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint32",
+                "name": "feePpm",
+                "type": "uint32"
+              },
+              {
+                "internalType": "uint32",
+                "name": "sharesLock",
+                "type": "uint32"
+              }
+            ],
+            "internalType": "struct ISharesCooldown.TExitParams",
+            "name": "r0",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint32",
+                "name": "feePpm",
+                "type": "uint32"
+              },
+              {
+                "internalType": "uint32",
+                "name": "sharesLock",
+                "type": "uint32"
+              }
+            ],
+            "internalType": "struct ISharesCooldown.TExitParams",
+            "name": "r1",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint32",
+                "name": "feePpm",
+                "type": "uint32"
+              },
+              {
+                "internalType": "uint32",
+                "name": "sharesLock",
+                "type": "uint32"
+              }
+            ],
+            "internalType": "struct ISharesCooldown.TExitParams",
+            "name": "r2",
+            "type": "tuple"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct ISharesCooldown.TExitUpperBounds",
+        "name": "boundsJrt",
+        "type": "tuple"
+      },
+      {
+        "components": [
+          {
+            "internalType": "uint32",
+            "name": "p0",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "p1",
+            "type": "uint32"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint32",
+                "name": "feePpm",
+                "type": "uint32"
+              },
+              {
+                "internalType": "uint32",
+                "name": "sharesLock",
+                "type": "uint32"
+              }
+            ],
+            "internalType": "struct ISharesCooldown.TExitParams",
+            "name": "r0",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint32",
+                "name": "feePpm",
+                "type": "uint32"
+              },
+              {
+                "internalType": "uint32",
+                "name": "sharesLock",
+                "type": "uint32"
+              }
+            ],
+            "internalType": "struct ISharesCooldown.TExitParams",
+            "name": "r1",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint32",
+                "name": "feePpm",
+                "type": "uint32"
+              },
+              {
+                "internalType": "uint32",
+                "name": "sharesLock",
+                "type": "uint32"
+              }
+            ],
+            "internalType": "struct ISharesCooldown.TExitParams",
+            "name": "r2",
+            "type": "tuple"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct ISharesCooldown.TExitUpperBounds",
+        "name": "boundsSrt",
+        "type": "tuple"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint64",
+        "name": "executeAfter",
+        "type": "uint64"
+      }
+    ],
+    "name": "ExitModeBoundsChangeScheduled",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint64",
+        "name": "version",
+        "type": "uint64"
+      }
+    ],
+    "name": "Initialized",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "accessControlManager",
+        "type": "address"
+      }
+    ],
+    "name": "NewAccessControlManager",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "twoStepConfigManager",
+        "type": "address"
+      }
+    ],
+    "name": "NewTwoStepConfigManager",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferStarted",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "COOLDOWN_WORKER_ROLE",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "MIN_DELAY",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "PAUSER_ROLE",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "PROPOSER_CONFIG_ROLE",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "RESERVE_MANAGER_ROLE",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "UPDATER_CDO_APR_ROLE",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "UPDATER_FEED_ROLE",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "UPDATER_STRAT_CONFIG_ROLE",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "acceptOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "acm",
+    "outputs": [
+      {
+        "internalType": "contract IAccessControlManager",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "cancelExitFeeChange",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "cancelExitModeBoundsChange",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "cdo",
+    "outputs": [
+      {
+        "internalType": "contract IStrataCDOFull",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "executeExitFeeChange",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "executeExitModeBoundsChange",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "initialize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "pendingExitFeeChange",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "feeJrt",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "feeSrt",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint64",
+        "name": "executeAfter",
+        "type": "uint64"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "pendingExitModeBoundsJrt",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint32",
+            "name": "p0",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "p1",
+            "type": "uint32"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint32",
+                "name": "feePpm",
+                "type": "uint32"
+              },
+              {
+                "internalType": "uint32",
+                "name": "sharesLock",
+                "type": "uint32"
+              }
+            ],
+            "internalType": "struct ISharesCooldown.TExitParams",
+            "name": "r0",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint32",
+                "name": "feePpm",
+                "type": "uint32"
+              },
+              {
+                "internalType": "uint32",
+                "name": "sharesLock",
+                "type": "uint32"
+              }
+            ],
+            "internalType": "struct ISharesCooldown.TExitParams",
+            "name": "r1",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint32",
+                "name": "feePpm",
+                "type": "uint32"
+              },
+              {
+                "internalType": "uint32",
+                "name": "sharesLock",
+                "type": "uint32"
+              }
+            ],
+            "internalType": "struct ISharesCooldown.TExitParams",
+            "name": "r2",
+            "type": "tuple"
+          }
+        ],
+        "internalType": "struct ISharesCooldown.TExitUpperBounds",
+        "name": "bounds",
+        "type": "tuple"
+      },
+      {
+        "internalType": "uint64",
+        "name": "executeAfter",
+        "type": "uint64"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "pendingExitModeBoundsSrt",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint32",
+            "name": "p0",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "p1",
+            "type": "uint32"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint32",
+                "name": "feePpm",
+                "type": "uint32"
+              },
+              {
+                "internalType": "uint32",
+                "name": "sharesLock",
+                "type": "uint32"
+              }
+            ],
+            "internalType": "struct ISharesCooldown.TExitParams",
+            "name": "r0",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint32",
+                "name": "feePpm",
+                "type": "uint32"
+              },
+              {
+                "internalType": "uint32",
+                "name": "sharesLock",
+                "type": "uint32"
+              }
+            ],
+            "internalType": "struct ISharesCooldown.TExitParams",
+            "name": "r1",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint32",
+                "name": "feePpm",
+                "type": "uint32"
+              },
+              {
+                "internalType": "uint32",
+                "name": "sharesLock",
+                "type": "uint32"
+              }
+            ],
+            "internalType": "struct ISharesCooldown.TExitParams",
+            "name": "r2",
+            "type": "tuple"
+          }
+        ],
+        "internalType": "struct ISharesCooldown.TExitUpperBounds",
+        "name": "bounds",
+        "type": "tuple"
+      },
+      {
+        "internalType": "uint64",
+        "name": "executeAfter",
+        "type": "uint64"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "pendingOwner",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "feeJrt",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "feeSrt",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "delay",
+        "type": "uint256"
+      }
+    ],
+    "name": "scheduleExitFeeChange",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint32",
+            "name": "p0",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "p1",
+            "type": "uint32"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint32",
+                "name": "feePpm",
+                "type": "uint32"
+              },
+              {
+                "internalType": "uint32",
+                "name": "sharesLock",
+                "type": "uint32"
+              }
+            ],
+            "internalType": "struct ISharesCooldown.TExitParams",
+            "name": "r0",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint32",
+                "name": "feePpm",
+                "type": "uint32"
+              },
+              {
+                "internalType": "uint32",
+                "name": "sharesLock",
+                "type": "uint32"
+              }
+            ],
+            "internalType": "struct ISharesCooldown.TExitParams",
+            "name": "r1",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint32",
+                "name": "feePpm",
+                "type": "uint32"
+              },
+              {
+                "internalType": "uint32",
+                "name": "sharesLock",
+                "type": "uint32"
+              }
+            ],
+            "internalType": "struct ISharesCooldown.TExitParams",
+            "name": "r2",
+            "type": "tuple"
+          }
+        ],
+        "internalType": "struct ISharesCooldown.TExitUpperBounds",
+        "name": "boundsJrt",
+        "type": "tuple"
+      },
+      {
+        "components": [
+          {
+            "internalType": "uint32",
+            "name": "p0",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "p1",
+            "type": "uint32"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint32",
+                "name": "feePpm",
+                "type": "uint32"
+              },
+              {
+                "internalType": "uint32",
+                "name": "sharesLock",
+                "type": "uint32"
+              }
+            ],
+            "internalType": "struct ISharesCooldown.TExitParams",
+            "name": "r0",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint32",
+                "name": "feePpm",
+                "type": "uint32"
+              },
+              {
+                "internalType": "uint32",
+                "name": "sharesLock",
+                "type": "uint32"
+              }
+            ],
+            "internalType": "struct ISharesCooldown.TExitParams",
+            "name": "r1",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "uint32",
+                "name": "feePpm",
+                "type": "uint32"
+              },
+              {
+                "internalType": "uint32",
+                "name": "sharesLock",
+                "type": "uint32"
+              }
+            ],
+            "internalType": "struct ISharesCooldown.TExitParams",
+            "name": "r2",
+            "type": "tuple"
+          }
+        ],
+        "internalType": "struct ISharesCooldown.TExitUpperBounds",
+        "name": "boundsSrt",
+        "type": "tuple"
+      },
+      {
+        "internalType": "uint256",
+        "name": "delay",
+        "type": "uint256"
+      }
+    ],
+    "name": "scheduleExitModeBoundsChange",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "accessControlManager_",
+        "type": "address"
+      }
+    ],
+    "name": "setAccessControlManager",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "twoStepConfigManager_",
+        "type": "address"
+      }
+    ],
+    "name": "setTwoStepConfigManager",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "twoStepConfigManager",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

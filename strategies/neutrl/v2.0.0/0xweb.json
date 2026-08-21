@@ -1,0 +1,106 @@
+{
+  "contracts": {
+    "eth": {
+      "0x3AFC31C41a53C355940d48A0D1c6005d8905d0A9": {
+        "name": "StrataCDOV1",
+        "main": "./0xc/eth/StrataCDOV1/StrataCDOV1.ts",
+        "contractName": "StrataCDO"
+      },
+      "0x19A123423ca8dAF9E87DED8daD690c3Efc094f02": {
+        "name": "StrataCDOV2",
+        "main": "./0xc/eth/StrataCDOV2/StrataCDOV2.ts",
+        "contractName": "StrataCDO"
+      },
+      "0xa14009B8865C1B951511a8750E5E3d02e574db9d": {
+        "name": "ERC20CooldownV1",
+        "main": "./0xc/eth/ERC20CooldownV1/ERC20CooldownV1.ts",
+        "contractName": "ERC20Cooldown"
+      },
+      "0x5715a7c5aDF96185F76E52F2a647D1904BF53f19": {
+        "name": "ERC20CooldownV2",
+        "main": "./0xc/eth/ERC20CooldownV2/ERC20CooldownV2.ts",
+        "contractName": "ERC20Cooldown"
+      },
+      "0x2822B8d7Db77102937b040ed17Ac6785dfd98ce5": {
+        "name": "UnstakeCooldownV1",
+        "main": "./0xc/eth/UnstakeCooldownV1/UnstakeCooldownV1.ts",
+        "contractName": "UnstakeCooldown"
+      },
+      "0x1Ae1d8B39ee6EEC816681a0355c844bB150Db35F": {
+        "name": "UnstakeCooldownV2",
+        "main": "./0xc/eth/UnstakeCooldownV2/UnstakeCooldownV2.ts",
+        "contractName": "UnstakeCooldown"
+      },
+      "0x655c80af21FA35d5d94bd8BB32b9e325E38A1E58": {
+        "name": "SharesCooldownV1",
+        "main": "./0xc/eth/SharesCooldownV1/SharesCooldownV1.ts",
+        "contractName": "SharesCooldown"
+      },
+      "0x91d7ceD99b72029CeE91528Daa26441daFfA07dC": {
+        "name": "SharesCooldownV2",
+        "main": "./0xc/eth/SharesCooldownV2/SharesCooldownV2.ts",
+        "contractName": "SharesCooldown"
+      },
+      "0x4C8fA0DbC1B3021b518DF4476E33AEbe2c4aF269": {
+        "name": "SNUSDStrategyV1",
+        "main": "./0xc/eth/SNUSDStrategyV1/SNUSDStrategyV1.ts",
+        "contractName": "sNUSDStrategy"
+      },
+      "0x2bc7ddF4bC208e8462B37246961c40dDac76A635": {
+        "name": "SNUSDStrategyV2",
+        "main": "./0xc/eth/SNUSDStrategyV2/SNUSDStrategyV2.ts",
+        "contractName": "sNUSDStrategy"
+      },
+      "0x80F7b35310861F0e3D73ec03C0400D6B7641EcF9": {
+        "name": "AprPairFeedV1",
+        "main": "./0xc/eth/AprPairFeedV1/AprPairFeedV1.ts",
+        "contractName": "AprPairFeed"
+      },
+      "0xcAd8b0541b68Fe4EF07f4e87Aa33bb6d96bAaBC5": {
+        "name": "AprPairFeedV2",
+        "main": "./0xc/eth/AprPairFeedV2/AprPairFeedV2.ts",
+        "contractName": "AprPairFeed"
+      },
+      "0xeB97f3084d3817C9e64250B6D43cEF28E9dEa057": {
+        "name": "AccountingV1",
+        "main": "./0xc/eth/AccountingV1/AccountingV1.ts",
+        "contractName": "Accounting"
+      },
+      "0x0C25e873C951470C4Fb4f4420018B136f7716a9C": {
+        "name": "AccountingV2",
+        "main": "./0xc/eth/AccountingV2/AccountingV2.ts",
+        "contractName": "Accounting"
+      },
+      "0xC71B908fA50Ce773C248e3632E46c7192807e767": {
+        "name": "TrancheJrtV1",
+        "main": "./0xc/eth/TrancheJrtV1/TrancheJrtV1.ts",
+        "contractName": "Tranche"
+      },
+      "0x0Ea5BdF736F84949563F1Ec66c79b9c047fb8965": {
+        "name": "TrancheJrtV2",
+        "main": "./0xc/eth/TrancheJrtV2/TrancheJrtV2.ts",
+        "contractName": "Tranche"
+      },
+      "0x86E638BCF6dFC98361491Faa4c6F8edE25CD739E": {
+        "name": "TrancheSrtV1",
+        "main": "./0xc/eth/TrancheSrtV1/TrancheSrtV1.ts",
+        "contractName": "Tranche"
+      },
+      "0x470B9D44674b4706bAD670DaBb75ccFDa90D2743": {
+        "name": "TrancheSrtV2",
+        "main": "./0xc/eth/TrancheSrtV2/TrancheSrtV2.ts",
+        "contractName": "Tranche"
+      },
+      "0x452F0E1BD7310e3cFb32383d7c200308E551FE8A": {
+        "name": "TwoStepConfigManagerV1",
+        "main": "./0xc/eth/TwoStepConfigManagerV1/TwoStepConfigManagerV1.ts",
+        "contractName": "TwoStepConfigManager"
+      },
+      "0x658B16ceec3bbbdB05A91eBd73F297d064e931c9": {
+        "name": "TwoStepConfigManagerV2",
+        "main": "./0xc/eth/TwoStepConfigManagerV2/TwoStepConfigManagerV2.ts",
+        "contractName": "TwoStepConfigManager"
+      }
+    }
+  }
+}
