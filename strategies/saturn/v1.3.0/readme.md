@@ -4,6 +4,17 @@ This release upgrades the Saturn Strategy implementation and configures the exis
 
 The Strategy upgrade is required because the new Saturn `sUSDat` contract returns `0` from `previewWithdraw`. The Strategy now uses the standard `convertToShares` path when calculating the sUSDat shares required for withdrawals.
 
+
+# Upgrade via Timelock Transaction
+
+1. 🔒 Safe Proposal: https://app.safe.global/transactions/tx?safe=eth:0xA27cA9292268ee0f0258B749f1D5740c9Bb68B50&id=multisig_0xA27cA9292268ee0f0258B749f1D5740c9Bb68B50_0xba02101a24cdcfbd97e306493a580033a1c4cbb63428449691d90f05279fc5a2
+
+2. ⌛ Timelock Schedule: https://etherscan.io/tx/0x2939de36dc6f912233403832f647854a5a1a3b2755defdd0b361d305ee2653e7
+
+3. 🏁 Timelock Execution: https://etherscan.io/tx/0xe7e889e9e0e3fb533ec067e634042a39185733c9f1f71da721324f6a3aae499e
+
+----
+
 ## Strategy Upgrade
 
 ### Implementation Diff
