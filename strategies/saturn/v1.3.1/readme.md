@@ -7,7 +7,7 @@ The previous implementation used `sUSDat.convertToShares(baseAssets)`, which rou
 # Upgrade via Timelock Transaction
 
 1. Safe Proposal: https://app.safe.global/transactions/tx?safe=eth:0xA27cA9292268ee0f0258B749f1D5740c9Bb68B50&id=multisig_0xA27cA9292268ee0f0258B749f1D5740c9Bb68B50_0x615a5626f81ed31c7c97fc16b20246bb44cecb45d1db63115f8706e42f08694d
-2. Timelock Schedule: [Schedule call](#timelock-schedule-call) (transaction link not provided).
+2. Timelock Schedule: [Schedule call](#timelock-schedule-call) [0x592c892ea6bec759bc2304cca9798982ffc945624b2fa1496a10d0b68589195a](https://etherscan.io/tx/0x592c892ea6bec759bc2304cca9798982ffc945624b2fa1496a10d0b68589195a)
 3. Timelock Execution: Not provided.
 
 ----
