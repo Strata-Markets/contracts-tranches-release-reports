@@ -1,0 +1,16 @@
+{
+  "contracts": {
+    "eth": {
+      "0xE3dDFB67ab9f612ffBbE4D696f952A6689E12b86": {
+        "name": "SaturnStrategyV3",
+        "main": "./0xc/eth/SaturnStrategyV3/SaturnStrategyV3.ts",
+        "contractName": "SaturnStrategy"
+      },
+      "0x21afD87E1c166C8A5E0fB2cfD74c97DfEeb4A99c": {
+        "name": "SaturnStrategyV4",
+        "main": "./0xc/eth/SaturnStrategyV4/SaturnStrategyV4.ts",
+        "contractName": "SaturnStrategy"
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+diff --git a/./0xc/eth/SaturnStrategyV3/SaturnStrategyV3/contracts/tranches/strategies/saturn/SaturnStrategy.sol b/./0xc/eth/SaturnStrategyV4/SaturnStrategyV4/contracts/tranches/strategies/saturn/SaturnStrategy.sol
+index 1da5bbe..3a18ef2 100644
+--- a/./0xc/eth/SaturnStrategyV3/SaturnStrategyV3/contracts/tranches/strategies/saturn/SaturnStrategy.sol
++++ b/./0xc/eth/SaturnStrategyV4/SaturnStrategyV4/contracts/tranches/strategies/saturn/SaturnStrategy.sol
+@@ -166,8 +166,10 @@ contract SaturnStrategy is Strategy {
+             revert TokenWithdrawalPaused(tranche, token);
+         }
+ 
+-        // V2: previewWithdraw returns 0 (withdraw is disabled), use convertToShares instead
+-        uint256 shares = sUSDat.convertToShares(baseAssets);
++        // Shares needed for baseAssets, rounded up (in favor of the receiver, matches OZ previewWithdraw).
++        // Must equal Tranche.redeem's return value, which uses convertToTokens(sUSDat, baseAssets, Ceil).
++        // sUSDat V2 hard-codes previewWithdraw() to 0, so the Ceil formula is replicated locally.
++        uint256 shares = convertToTokens(address(sUSDat), baseAssets, Math.Rounding.Ceil);
+         if (token == address(sUSDat)) {
+             uint256 cooldownSeconds = shouldSkipCooldown ? 0 : (cdo.isJrt(tranche) ? sUSDatCooldownJrt : sUSDatCooldownSrt);
+             erc20Cooldown.transfer(IERC20(address(sUSDat)), sender, receiver, shares, cooldownSeconds);
